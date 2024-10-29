@@ -4,4 +4,7 @@ from hello_world import views as index_views
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, world!")
+    if request.method == POST:
+        return HttpResponse("You must have POSTed something")
+    else:
+        return HttpResponse(request.method)
